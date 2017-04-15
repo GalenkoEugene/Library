@@ -1,0 +1,59 @@
+--- !ruby/object:Library
+authors:
+- &2 !ruby/object:Author
+  name: Madyson Smitham
+  biography: Et ab totam laboriosam. Doloribus nihil quia temporibus voluptatem id
+    beatae occaecati. A vero repellat placeat officia.
+- &1 !ruby/object:Author
+  name: Pietro O'Keefe
+  biography: Soluta sunt possimus et consequatur voluptas reiciendis sunt. Quia facere
+    non exercitationem sed. Aperiam id necessitatibus vel.
+books:
+- !ruby/object:Book
+  title: Absalom, Absalom!
+  author: *1
+- &5 !ruby/object:Book
+  title: Jacob Have I Loved
+  author: *2
+- &6 !ruby/object:Book
+  title: A Darkling Plain
+  author: *2
+- &3 !ruby/object:Book
+  title: The Road Less Traveled
+  author: *1
+readers:
+- &4 !ruby/object:Reader
+  name: Sammy
+  email: chaya@batz.org
+  city: Virgiltown
+  street: Rozella Lake
+  house: '66306'
+- !ruby/object:Reader
+  name: Benjamin
+  email: fern@huelupton.com
+  city: Angelaton
+  street: Nolan Tunnel
+  house: '9543'
+- !ruby/object:Reader
+  name: Rogelio
+  email: meredith@mcdermottschroeder.co
+  city: West Enolachester
+  street: Cummings Mews
+  house: '1490'
+orders:
+- !ruby/object:Order
+  book: *3
+  reader: *4
+  date: 2015-03-16
+- !ruby/object:Order
+  book: *5
+  reader: *4
+  date: 2015-08-15
+- !ruby/object:Order
+  book: *3
+  reader: *4
+  date: 2016-10-08
+- !ruby/object:Order
+  book: *6
+  reader: *4
+  date: 2017-03-18
