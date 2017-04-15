@@ -13,14 +13,13 @@ class Library
   	@authors, @books, @readers, @orders = authors, books, readers, orders
   end
 
-  def bookworm(db)
+  def bookworm
+    
   end
 
-  def bestseller(db)
+  def bestseller
   end
-  
-  def top3_reader_quantity(db)
+
+  def top3_reader_quantity
   end
 end 
-
-puts "Library class load successfully..."

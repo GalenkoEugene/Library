@@ -5,4 +5,3 @@ class Author
   	@name, @biography = name, biography
   end
 end
-puts "Autor class load successfully..."

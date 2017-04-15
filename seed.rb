@@ -28,6 +28,3 @@ def seed_db
  
   Library.new(authors, books, readers, orders)
 end
-
-
-puts "file 'seed.rb' loaded successfully.."
