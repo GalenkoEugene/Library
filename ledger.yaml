@@ -1,59 +1,127 @@
 --- !ruby/object:Library
 authors:
 - &1 !ruby/object:Author
-  name: Sincere Sawayn
-  biography: Atque aliquid dolor impedit dolor quia nihil. Quia saepe unde voluptatem
-    et quas. Rerum et vitae itaque et. Impedit optio magnam.
+  name: Dr. Tremaine Friesen
+  biography: Atque facere ut harum qui et. Corrupti veritatis id mollitia officiis.
+    Architecto veritatis amet.
+- !ruby/object:Author
+  name: Laura Schmidt
+  biography: Sapiente et in odio nostrum quia magnam. Quae optio ex illo quod aliquid.
+    Eaque saepe dolor quaerat natus consequuntur alias.
 - &2 !ruby/object:Author
-  name: Maxwell Kihn
-  biography: Molestias voluptatem et consequuntur harum. Ea unde et ipsam. Placeat
-    dolores sit eum est aperiam sapiente.
+  name: Paige Gleason
+  biography: Cumque ex qui repellat. Cupiditate officiis repudiandae ut aliquid est.
+    Voluptatem voluptatem placeat aspernatur a voluptas quam. Iusto nihil aut sed.
+- &3 !ruby/object:Author
+  name: Mrs. Maximillian Beatty
+  biography: Officiis id sit distinctio. Sunt libero voluptatem voluptatibus placeat.
+    Ut dignissimos ratione eum sint tempore. Quibusdam veritatis officia consequatur
+    nemo accusantium fugiat rem.
+- &4 !ruby/object:Author
+  name: Dr. Vernie Howe
+  biography: Explicabo sint recusandae maiores quo. Officiis molestiae nihil eveniet
+    officia qui. Quos sit quis reprehenderit rerum.
 books:
-- &5 !ruby/object:Book
+- &12 !ruby/object:Book
+  title: Have His Carcase
+  author: *1
+- &9 !ruby/object:Book
   title: Tender Is the Night
-  author: *1
+  author: *2
+- &11 !ruby/object:Book
+  title: The Soldier's Art
+  author: *2
+- &7 !ruby/object:Book
+  title: The Proper Study
+  author: *3
+- &15 !ruby/object:Book
+  title: The Skull Beneath the Skin
+  author: *4
 - !ruby/object:Book
-  title: Nine Coaches Waiting
-  author: *1
-- &6 !ruby/object:Book
-  title: The Daffodil Sky
+  title: Things Fall Apart
   author: *2
-- &3 !ruby/object:Book
-  title: The Heart Is Deceitful Above All Things
-  author: *2
+- &5 !ruby/object:Book
+  title: Stranger in a Strange Land
+  author: *4
+- &14 !ruby/object:Book
+  title: Postern of Fate
+  author: *4
+- &13 !ruby/object:Book
+  title: The Moon by Night
+  author: *4
 readers:
-- &8 !ruby/object:Reader
-  name: Rachael
-  email: hallie@jacobsontorphy.org
-  city: Kochville
-  street: Rebecca Place
-  house: '63729'
-- &4 !ruby/object:Reader
-  name: George
-  email: amari.spinka@larkinfeil.org
-  city: Greenfurt
-  street: Brooklyn Union
-  house: '404'
-- &7 !ruby/object:Reader
-  name: Ena
-  email: scarlett@marquardthoppe.biz
+- !ruby/object:Reader
+  name: Clarissa
+  email: lexie_upton@schmittpagac.org
   city: Farrellmouth
-  street: Elaina Rue
-  house: '214'
+  street: Hansen Junctions
+  house: '9551'
+- &10 !ruby/object:Reader
+  name: Emilie
+  email: joaquin@keeling.org
+  city: South Deangelo
+  street: Royal Key
+  house: '198'
+- &16 !ruby/object:Reader
+  name: Alexa
+  email: halle@purdyhintz.biz
+  city: North Nettie
+  street: Hintz Walks
+  house: '39799'
+- &6 !ruby/object:Reader
+  name: Amani
+  email: mark.west@bernierabbott.com
+  city: Dasialand
+  street: Ebert Tunnel
+  house: '8529'
+- &8 !ruby/object:Reader
+  name: Conner
+  email: leie_wehner@bradtke.org
+  city: New Halview
+  street: Hilll Views
+  house: '11243'
 orders:
 - !ruby/object:Order
-  book: *3
-  reader: *4
-  date: 2015-03-11
+  book: *5
+  reader: *6
+  date: 2014-08-13
+- !ruby/object:Order
+  book: *7
+  reader: *8
+  date: 2015-07-13
+- !ruby/object:Order
+  book: *9
+  reader: *10
+  date: 2016-03-10
+- !ruby/object:Order
+  book: *11
+  reader: *8
+  date: 2014-05-21
+- !ruby/object:Order
+  book: *12
+  reader: *10
+  date: 2016-06-08
+- !ruby/object:Order
+  book: *12
+  reader: *6
+  date: 2014-04-22
+- !ruby/object:Order
+  book: *13
+  reader: *6
+  date: 2014-05-27
+- !ruby/object:Order
+  book: *14
+  reader: *10
+  date: 2016-10-13
+- !ruby/object:Order
+  book: *9
+  reader: *6
+  date: 2015-04-08
+- !ruby/object:Order
+  book: *15
+  reader: *6
+  date: 2017-03-25
 - !ruby/object:Order
   book: *5
-  reader: *4
-  date: 2016-08-18
-- !ruby/object:Order
-  book: *6
-  reader: *7
-  date: 2015-01-03
-- !ruby/object:Order
-  book: *6
-  reader: *8
-  date: 2015-03-12
+  reader: *16
+  date: 2016-03-20

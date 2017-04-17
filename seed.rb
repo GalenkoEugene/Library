@@ -7,21 +7,21 @@ require './classes/library'
 
 def seed_db
   authors = []
-  2.times { authors << Author.new(Faker::Book.author, 
+  5.times { authors << Author.new(Faker::Book.author, 
 								Faker::Lorem.paragraph) }
   books = []
-  4.times{ books << Book.new(Faker::Book.title,  
+  9.times{ books << Book.new(Faker::Book.title,  
 							authors.sample) }
 
   readers = []  
-  3.times{ readers << Reader.new(Faker::Name.first_name,
+  5.times{ readers << Reader.new(Faker::Name.first_name,
 								Faker::Internet.email,
 								Faker::Address.city,
 								Faker::Address.street_name,
 								Faker::Address.building_number) }
 
   orders = [] 
-  4.times{ orders << Order.new(books.sample,
+  11.times{ orders << Order.new(books.sample,
 							readers.sample,
 							Faker::Date.between(3.year.ago, 1.day.ago)
 							) }
