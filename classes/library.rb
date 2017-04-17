@@ -14,29 +14,24 @@ class Library
   end
 
   def bookworm
-    @orders.map { |order| order.reader.name if top_readers.include? (order.reader.email)}.compact.uniq[0]
+    @readers.map { |reader| reader.name if top.include? (reader.email)}.compact.uniq[0]
   end
 
   def bestseller
-  	@orders.map { |order| order.book.title if top_books.include? (order.book.title)}.compact.first
+  	@books.map { |book| book.title if top("book").include? (book.title)}.compact.first
   end
 
-  def top3_reader_quantity
-  	@orders.map { |order| order.reader.name if top_books(3).include? (order.book.title) }.compact.uniq.size
+  def top3_books_readers
+  	@orders.map { |order| order.reader.name if top("book", 3).include? (order.book.title) }.compact.uniq.size
   end
 
   public
-  def top_readers(amount=1)
-  	h=Hash.new(0)
-  	@orders.map { |el| h[el.reader.email]+=1 }
-    h.max_by{|k,v| v}
-    h.sort_by { |k,v| -v }[0..amount-1].flatten
-  end
 
-  def top_books(amount=1)
+  def top(target="reader", n=1)
   	h=Hash.new(0)
-  	@orders.map { |el| h[el.book.title]+=1 }
-    h.max_by{|k,v| v}
-    h.sort_by { |k,v| -v }[0..amount-1].flatten
+  	@orders.map do |el| 
+  	  target=="reader" ? h[el.reader.email]+=1 : h[el.book.title]+=1 
+  	end
+    h.sort_by { |k,v| -v }.first(n).flatten
   end
 end 
