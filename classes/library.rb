@@ -10,7 +10,7 @@ class Library
   attr_accessor :authors, :books, :readers, :orders
 
   def initialize(authors, books, readers, orders)
-  	@authors, @books, @readers, @orders = authors, books, readers, orders
+    @authors, @books, @readers, @orders = authors, books, readers, orders
   end
 
   def bookworm
@@ -18,20 +18,28 @@ class Library
   end
 
   def bestseller
-  	@books.map { |book| book.title if top("book").include? (book.title)}.compact.first
+    @books.map { |book| book.title if top("book").include? (book.title)}.compact.first
   end
 
   def top3_books_readers
-  	@orders.map { |order| order.reader.name if top("book", 3).include? (order.book.title) }.compact.uniq.size
+    @orders.map { |order| order.reader.name if top("book", 3).include? (order.book.title) }.compact.uniq.size
   end
 
-  public
+  private
 
   def top(target="reader", n=1)
-  	h=Hash.new(0)
-  	@orders.map do |el| 
-  	  target=="reader" ? h[el.reader.email]+=1 : h[el.book.title]+=1 
-  	end
+    h=Hash.new(0)
+    @orders.map do |el| 
+      target=="reader" ? h[el.reader.email]+=1 : h[el.book.title]+=1 
+    end
     h.sort_by { |k,v| -v }.first(n).flatten
   end
-end 
+
+  def import
+    YAML.load_file('../ledger.yaml') if File.file?('../ledger.yaml')
+  end
+
+  def generate_data
+
+  end
+end

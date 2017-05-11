@@ -1,4 +1,6 @@
-Write program that determines:
+*For verify the application works, run the file `run.rb`*
+
+`Write program that determines:`
 
     Who often takes the book
     What is the most popular book
@@ -7,7 +9,7 @@ Write program that determines:
     Get all Library data from file(s)
 
 
-Library
+### Library
 
     Book: title, author
     Order: book, reader, date
@@ -16,6 +18,6 @@ Library
     Library: books, orders, readers, authors
 
 
-gems: 
-	- ruby 	'2.4.0'
-	- faker '1.7.3' #gem install faker  => https://github.com/stympy/faker
+###### gems: 
+	*- ruby 	'2.4.0'1
+	*- faker '1.7.3' #gem install [faker](https://github.com/stympy/faker)2
