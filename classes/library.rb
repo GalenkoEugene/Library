@@ -28,7 +28,7 @@ class Library
 
   def top3_books_readers
     books = top(3, :book).to_h.keys
-    @orders.flat_map { |order| order.reader if books.include? order.book }.uniq.size
+    @orders.flat_map { |order| order.reader if books.include? order.book }.compact.uniq.size
   end
 
   def import
