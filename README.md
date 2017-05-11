@@ -1,6 +1,6 @@
 *For verify the application works, run the file `run.rb`*
 
-`Write program that determines:`
+### Write program that determines:
 
     Who often takes the book
     What is the most popular book
@@ -19,5 +19,5 @@
 
 
 ###### gems: 
-	*- ruby 	'2.4.0'1
-	*- faker '1.7.3' #gem install [faker](https://github.com/stympy/faker)2
+    - ruby    '2.4.0'
+    - faker   '1.7.3' #gem install [faker](https://github.com/stympy/faker)
