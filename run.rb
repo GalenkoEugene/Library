@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './classes/library'
 
 def determines(library)
@@ -7,6 +9,6 @@ def determines(library)
 end
 
 library = Library.new
-File.file?("ledger.yaml") ? library.import : library.generate_data
+File.file?('ledger.yaml') ? library.import : library.generate_data
 
 determines(library)
