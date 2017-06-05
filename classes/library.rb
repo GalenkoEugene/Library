@@ -7,6 +7,7 @@ require './classes/author'
 require './classes/reader'
 require './classes/order'
 require './seed'
+require 'pp'
 # allow import and export data to/from file, can find top(:book, :reader)
 class Library
   attr_accessor :authors, :books, :readers, :orders
@@ -28,7 +29,7 @@ class Library
 
   def top3_books_readers
     books = top(3, :book).to_h.keys
-    @orders.flat_map { |order| order.reader if books.include? order.book }.compact.uniq.size
+    @orders.select { |order| books.include? order.book }.group_by(&:reader).uniq.size
   end
 
   def import
