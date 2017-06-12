@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 require 'yaml/store'
-require 'faker'
 require './classes/book'
 require './classes/author'
 require './classes/reader'
 require './classes/order'
 require './seed'
-require 'pp'
 # allow import and export data to/from file, can find top(:book, :reader)
 class Library
   attr_accessor :authors, :books, :readers, :orders
@@ -38,11 +36,6 @@ class Library
     @books = load.books
     @readers = load.readers
     @orders = load.orders
-  end
-
-  def generate_data
-    seed_db(self)
-    File.open('ledger.yaml', 'w') { |f| f.write self.to_yaml }
   end
 
   private

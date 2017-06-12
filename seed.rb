@@ -2,8 +2,11 @@
 
 require './classes/library'
 require 'active_support/time'
+require 'faker'
 
-def seed_db(library)
+def seed_db
+  library = Library.new
+
   authors = []
   7.times { authors << Author.new(Faker::Book.unique.author,
                                   Faker::Lorem.paragraph) }
@@ -24,4 +27,7 @@ def seed_db(library)
   library.books = books
   library.readers = readers
   library.orders = orders
+
+  File.open('ledger.yaml', 'w') { |f| f.write library.to_yaml }
+  library
 end
