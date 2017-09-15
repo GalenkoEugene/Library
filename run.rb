@@ -1,18 +1,14 @@
-require './seed'
-db_file = "ledger.yaml"
+# frozen_string_literal: true
 
-def determines(db)
-  puts "'#{db.bookworm}' often takes the book"
-  puts "'#{db.bestseller}' is the most popular book"
-  puts "'#{db.top3_books_readers}' people ordered one of the three most popular books"
+require './classes/library'
+
+def determines(library)
+  puts "'#{library.bookworm}' often takes the book"
+  puts "'#{library.bestseller}' is the most popular book"
+  puts "'#{library.top3_books_readers}' people ordered one of the three most popular books"
 end
 
-db = if File.file?(db_file)
-  YAML.load_file(db_file)
-else
-  db = seed_db
-  File.open(db_file, "w") { |f| f.write db.to_yaml }
-  db
-end
+library = Library.new
+File.file?('ledger.yaml') ? library.import : library = seed_db
 
-determines(db)
+determines(library)

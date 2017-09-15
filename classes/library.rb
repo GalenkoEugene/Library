@@ -1,37 +1,46 @@
+# frozen_string_literal: true
+
 require 'yaml/store'
-require 'faker'
-require 'active_support/time'
 require './classes/book'
 require './classes/author'
 require './classes/reader'
 require './classes/order'
-
+require './seed'
+# allow import and export data to/from file, can find top(:book, :reader)
 class Library
   attr_accessor :authors, :books, :readers, :orders
 
-  def initialize(authors, books, readers, orders)
-  	@authors, @books, @readers, @orders = authors, books, readers, orders
+  def initialize(authors = [], books = [], readers = [], orders = [])
+    @authors = authors
+    @books = books
+    @readers = readers
+    @orders = orders
   end
 
   def bookworm
-    @readers.map { |reader| reader.name if top.include? (reader.email)}.compact.uniq[0]
+    top(1, :reader).flatten[0].name
   end
 
   def bestseller
-  	@books.map { |book| book.title if top("book").include? (book.title)}.compact.first
+    top(1, :book).flatten[0].title
   end
 
   def top3_books_readers
-  	@orders.map { |order| order.reader.name if top("book", 3).include? (order.book.title) }.compact.uniq.size
+    books = top(3, :book).to_h.keys
+    @orders.select { |order| books.include? order.book }.group_by(&:reader).uniq.size
   end
 
-  public
-
-  def top(target="reader", n=1)
-  	h=Hash.new(0)
-  	@orders.map do |el| 
-  	  target=="reader" ? h[el.reader.email]+=1 : h[el.book.title]+=1 
-  	end
-    h.sort_by { |k,v| -v }.first(n).flatten
+  def import
+    load = YAML.load_file('ledger.yaml') if File.file?('ledger.yaml')
+    @authors = load.authors
+    @books = load.books
+    @readers = load.readers
+    @orders = load.orders
   end
-end 
+
+  private
+
+  def top(n, object)
+    @orders.group_by(&object).max_by(n) { |_, orders| orders.size }
+  end
+end
